@@ -3,13 +3,12 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.MONGO_URI, {
-            // These are no longer needed in latest mongoose, but safe for older versions:
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
-        console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+        console.log(` MongoDB Connected: ${conn.connection.host}`);
     } catch (err) {
-        console.error(`❌ MongoDB connection error: ${err.message}`);
+        console.error(` MongoDB connection error: ${err.message}`);
         process.exit(1); // Stop the server if DB fails
     }
 };
